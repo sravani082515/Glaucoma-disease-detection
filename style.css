@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #5a00ff, #00c6ff);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 400px;
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+.upload-box {
+    border: 2px dashed rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.upload-box:hover, .upload-box.active {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.02);
+}
+
+.upload-box label {
+    cursor: pointer;
+    display: block;
+}
+
+#imageUpload {
+    display: none;
+}
+
+#preview {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+    display: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Loader */
+.loader {
+    border: 6px solid rgba(255, 255, 255, 0.2);
+    border-top: 6px solid #00ff88;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 20px auto;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+button {
+    background: linear-gradient(135deg, #00ff88, #00c6ff);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.result-box {
+    margin-top: 20px;
+    background: rgba(0,0,0,0.3);
+    padding: 15px;
+    border-radius: 15px;
+}
+
+/* Accuracy Bar */
+.accuracy-container {
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    height: 20px;
+    width: 100%;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.accuracy-bar {
+    background: linear-gradient(135deg, #00ff88, #00c6ff);
+    height: 100%;
+    width: 0%;
+    transition: width 0.2s ease;
+}
+
+#accuracyValue {
+    margin-top: 5px;
+    font-weight: bold;
+}

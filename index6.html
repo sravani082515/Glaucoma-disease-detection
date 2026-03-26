@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GlaucomaAI – Early Glaucoma Detection</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navbar -->
+  <header class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+      <h1 class="text-2xl font-bold text-blue-600">GlaucomaAI</h1>
+      <nav class="space-x-6">
+        <a href="#home" class="text-gray-700 hover:text-blue-600">Home</a>
+        <a href="#upload-section" class="text-gray-700 hover:text-blue-600">Upload</a>
+        <a href="#result-section" class="text-gray-700 hover:text-blue-600">Result</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="max-w-5xl mx-auto text-center pt-32 pb-20">
+    <h2 class="text-4xl font-bold text-gray-900 mb-4">Early Glaucoma Detection Using AI</h2>
+    <p class="text-lg text-gray-600 mb-8">Upload a retinal image to analyze and detect potential signs of glaucoma instantly using deep learning.</p>
+    <button id="start-analysis" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg font-semibold transition duration-300">
+      Start Analysis
+    </button>
+  </section>
+
+  <!-- Upload Section -->
+  <section id="upload-section" class="max-w-3xl mx-auto mt-16 bg-white shadow-sm rounded-2xl border border-slate-200 p-8">
+    <div class="flex items-center gap-3 mb-6">
+      <h3 class="text-2xl font-semibold text-gray-900">Upload Retinal Image</h3>
+    </div>
+
+    <input id="image-upload" type="file" accept="image/*" class="block w-full text-gray-700 border border-gray-300 rounded-lg p-3 mb-6 cursor-pointer" />
+    
+    <button id="analyze-btn" class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition duration-300">
+      Analyze Image
+    </button>
+
+    <div id="loading" class="hidden mt-4 text-center text-blue-600 font-medium">
+      Analyzing image, please wait...
+    </div>
+  </section>
+
+  <!-- Result Section -->
+  <section id="result-section" class="max-w-3xl mx-auto mt-16 mb-20 bg-white shadow-sm rounded-2xl border border-slate-200 p-8 hidden">
+    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Analysis Result</h3>
+    <p id="result-text" class="text-lg text-gray-700">Your result will appear here after analysis.</p>
+  </section>
+
+  <script>
+    document.getElementById("start-analysis").addEventListener("click", function () {
+      document.getElementById("upload-section").scrollIntoView({ behavior: "smooth" });
+    });
+
+    document.getElementById("analyze-btn").addEventListener("click", function () {
+      const imageInput = document.getElementById("image-upload");
+      const resultSection = document.getElementById("result-section");
+      const loading = document.getElementById("loading");
+      const resultText = document.getElementById("result-text");
+
+      if (!imageInput.files.length) {
+        alert("Please upload an image before analysis.");
+        return;
+      }
+
+      // Show loading
+      loading.classList.remove("hidden");
+      resultSection.classList.add("hidden");
+
+      // Simulate image analysis (replace with real model prediction)
+      setTimeout(() => {
+        loading.classList.add("hidden");
+        resultText.textContent = "Prediction Result: The image shows signs of Normal Eye (No Glaucoma Detected).";
+        resultSection.classList.remove("hidden");
+        resultSection.scrollIntoView({ behavior: "smooth" });
+      }, 2500);
+    });
+  </script>
+</body>
+</html>
